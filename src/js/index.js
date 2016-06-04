@@ -1,30 +1,24 @@
-// require('react');
-// require('react');
-import React from 'react';
-import ReactDOM from 'react-dom';
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
+import { createStore, applyMiddleware } from 'redux'
+import { selectSubreddit, fetchPosts } from './actions/action.js'
+import rootReducer from './reducers'
 
-import Root from './container/Root';
+const loggerMiddleware = createLogger()
 
-import configureStore from './store/configureStore';
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    thunkMiddleware, // lets us dispatch() functions
+    loggerMiddleware // neat middleware that logs actions
+  )
+)
 
-// require('../css/index.css');
-import '../css/index.css';
+store.dispatch(selectSubreddit('reactjs'))
+// store.dispatch(fetchPosts('reactjs')).then(() =>
+//   console.log(store.getState())
+// )
 
-// let state = null;
-// try {
-//     state = JSON.parse(localStorage.getItem('store'));
-//
-//     if(state.history === undefined){
-//         state.history = [];
-//     }
-//     console.log('获取已有 store');
-// } catch(e) {
-//     state = {
-//         content: [{text:''}],
-//         history:[]
-//     };
-//     console.log('初始化 store');
-// }
-const store = configureStore(/*state*/);
-
-ReactDOM.render(<Root store={store} ></Root>, document.getElementById('app'));
+store.dispatch(fetchPostsIfNeeded('reactjs')).then(() =>
+  console.log(store.getState())
+)

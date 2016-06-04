@@ -45,6 +45,7 @@ function postsBySubreddit(state = {}, action) {
     case INVALIDATE_SUBREDDIT:
     case RECEIVE_POSTS:
     case REQUEST_POSTS:
+
       return Object.assign({}, state, {
         [action.subreddit]: posts(state[action.subreddit], action)
       })

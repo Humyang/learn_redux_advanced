@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import {
   SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT,
   REQUEST_POSTS, RECEIVE_POSTS
-} from '../actions'
+} from '../actions/action.js'
 
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {

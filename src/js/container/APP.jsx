@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import InputBoard from './InputBoard.jsx';
 import {connect} from 'react-redux'
+
+import { Link } from 'react-router'
 
 class App extends React.Component {
 
@@ -14,6 +15,7 @@ class App extends React.Component {
     }
     render() {
         return <div id="container">
+            <li><Link to="/secondview">to secondview</Link></li>
                 {/*<InputBoard ></InputBoard>*/}
             </div>;
     }

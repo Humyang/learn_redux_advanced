@@ -6,13 +6,14 @@ import SecondView from './views/SecondView.jsx';
 
 import DevTools from './DevTools.jsx';
 
-import {Router,hashHistory} from 'react-router'
+import {Router,hashHistory,Link} from 'react-router'
 
 import routes from '../routes.js'
 
 export default class Root extends Component {
   render() {
     const { store } = this.props;
+    console.log(routes);
     return (
       <Provider store={store}>
           <div >

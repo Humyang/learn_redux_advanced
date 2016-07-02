@@ -17,7 +17,7 @@ class SecondView extends React.Component {
             </div>;
     }
     componentDidMount() {
-
+        alert('bbb');
     }
 }
 SecondView.contextTypes = {

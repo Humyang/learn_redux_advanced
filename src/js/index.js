@@ -10,9 +10,9 @@ import rootReducer from './reducers/reducer.js'
 
 import configStore from './store/configureStore.js';
 
-import App from './container/Root.js';
+import Root from './containers/Root.js';
 
-// require('file?name=index.html!../index.html');
+
 require("file?name=index.html!../index.html");
 
 const store = configStore();
@@ -25,6 +25,6 @@ store.dispatch(fetchPosts('reactjs')).then(() =>
   console.log(store.getState())
 )
 ReactDom.render(
-    <App store={store} />,
+    <Root store={store} />,
     document.getElementById('app')
 )

@@ -4,9 +4,11 @@ import App from './containers/App'
 // import UserPage from './containers/UserPage'
 // import RepoPage from './containers/RepoPage'
 import SecondView from './containers/views/SecondView.jsx'
+import ThirdlyVIew from './containers/views/ThirdlyVIew.jsx'
 import { browserHistory } from 'react-router'
 export default (
     <Route path="/"  component={App}>
               <Route path="/secondview" component={SecondView} />
+              <Route path="/thirdlyview" component={ThirdlyVIew} />
     </Route>
 )

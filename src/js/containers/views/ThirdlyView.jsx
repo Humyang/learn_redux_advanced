@@ -13,7 +13,7 @@ class SecondView extends React.Component {
     }
     render() {
         return <div id="container">
-            <h1>Hello,i am Second!</h1>
+            <h1>Hello,i am thirdly!</h1>
             </div>;
     }
     componentDidMount() {

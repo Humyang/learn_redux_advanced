@@ -15,8 +15,10 @@ class App extends React.Component {
     }
     render() {
         return <div id="container">
-            <li><Link to="/secondview">to secondview</Link></li>
-            <h1>App</h1>
+            <ul>
+                <li><Link to="/secondview">to secondview</Link></li>
+                <li><Link to="/thirdlyview">to thirdlyview</Link></li>
+            </ul>
             {this.props.children}
 
                 {/*<InputBoard ></InputBoard>*/}

@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "if-env": "^1.0.0",
     "react": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.5.1"

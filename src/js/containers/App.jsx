@@ -5,6 +5,8 @@ import {connect} from 'react-redux'
 
 import { Link } from 'react-router'
 
+import NavLink from '../component/common/NavLink.js';
+
 class App extends React.Component {
 
     static defaultProps = {}
@@ -16,8 +18,11 @@ class App extends React.Component {
     render() {
         return <div id="container">
             <ul>
-                <li><Link to="/secondview">to secondview</Link></li>
-                <li><Link to="/thirdlyview">to thirdlyview</Link></li>
+                <li><NavLink to="/" onlyActiveOnIndex={true}>home page</NavLink></li>
+                <li><NavLink to="/secondview" >to secondview</NavLink></li>
+                <li><NavLink to="/thirdlyview" >to thirdlyview</NavLink></li>
+                <li><NavLink to="/repos" >to repos</NavLink></li>
+
             </ul>
             {this.props.children}
 

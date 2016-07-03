@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --progress --colors --display-modules",
-    "server": "webpack-dev-server --progress --colors --wacth --content-base='src' --inline",
+    "server": "webpack-dev-server --progress --colors --wacth --content-base='src' --inline --history-api-fallback",
     "start": "npm run webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

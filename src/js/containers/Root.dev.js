@@ -6,7 +6,7 @@ import SecondView from './views/SecondView.jsx';
 
 import DevTools from './DevTools.jsx';
 
-import {Router,hashHistory,Link} from 'react-router'
+import {Router,hashHistory,browserHistory,Link} from 'react-router'
 
 import routes from '../routes.js'
 
@@ -17,7 +17,7 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
           <div >
-            <Router history={hashHistory} routes={routes} />
+            <Router history={browserHistory} routes={routes} />
               <DevTools />
           </div>
       </Provider>

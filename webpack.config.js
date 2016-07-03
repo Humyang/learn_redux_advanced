@@ -62,13 +62,21 @@ var config = {
     postcss: function (webpack) {
         return [postcssImport({addDependencyTo: webpack}),require('autoprefixer'), require('precss')];
     },
-    plugins: [
+    plugins: process.env.NODE_ENV === 'production' ? [
+        new webpack.optimize.CommonsChunkPlugin('commons', 'js/commons.js'),
+        new webpack.DefinePlugin({
+            'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+        }),
+                new webpack.optimize.DedupePlugin(),
+                new webpack.optimize.OccurrenceOrderPlugin(),
+                new webpack.optimize.UglifyJsPlugin(),
+                new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        ]:[
         new webpack.optimize.CommonsChunkPlugin('commons', 'js/commons.js'),
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
         }),
         new OpenBrowserPlugin({ url: 'http://localhost:8080' })
-        // new ExtractTextPlugin("css/[name].css")
     ]
 }
 

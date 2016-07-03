@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+     "start":"if-env NODE_ENV=production && npm run start:prod || npm run server",
     "webpack": "webpack --progress --colors --display-modules",
     "server": "webpack-dev-server --progress --colors --wacth --content-base='src' --inline --history-api-fallback",
-    "start": "npm run webpack",
+    "start:prod": "npm run webpack && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

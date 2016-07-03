@@ -1,9 +1,12 @@
 import {createStore,applyMiddleware,compose} from 'redux';
-import rootReducer from '../reducer';
+import rootReducer from '../reducers/reducer.js';
 
 // Middleware you want to use in production
-// const enhaner = applyMiddleware(p1,p2,p3);
 
+
+import thunkMiddleware from 'redux-thunk'
 export default function configureStore(initialState){
-    return createStore(rootReducer,initialState);
+    return createStore(rootReducer,initialState,applyMiddleware(
+            thunkMiddleware// lets us dispatch() functions
+          ))
 }

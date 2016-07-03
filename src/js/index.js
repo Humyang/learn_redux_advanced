@@ -15,6 +15,8 @@ import Root from './containers/Root.js';
 
 require("file?name=index.html!../index.html");
 
+require('../css/index.css');
+
 const store = configStore();
 
 console.log(store);

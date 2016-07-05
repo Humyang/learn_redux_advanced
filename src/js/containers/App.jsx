@@ -22,7 +22,6 @@ class App extends React.Component {
                 <li><NavLink to="/secondview" >to secondview</NavLink></li>
                 <li><NavLink to="/thirdlyview" >to thirdlyview</NavLink></li>
                 <li><NavLink to="/repos" >to repos</NavLink></li>
-
             </ul>
             {this.props.children}
 

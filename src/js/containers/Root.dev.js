@@ -6,21 +6,32 @@ import SecondView from './views/SecondView.jsx';
 
 import DevTools from './DevTools.jsx';
 
-import {Router,hashHistory,browserHistory,Link} from 'react-router'
+import {Router} from 'react-router'
 
 import routes from '../routes.js'
 
-export default class Root extends Component {
+class Root extends Component {
+
+    // getChildren(){
+    //     return {
+    //         router:browserHistory
+    //     }
+    // }
+
+
   render() {
-    const { store } = this.props;
-    console.log(routes);
+    const { store,history } = this.props;
     return (
       <Provider store={store}>
           <div >
-            <Router history={browserHistory} routes={routes} />
+            <Router history={history} routes={routes} />
               <DevTools />
           </div>
       </Provider>
     );
   }
 }
+// Root.childContextTypes = {
+//     type:React.PropTypes.object
+// };
+export default Root

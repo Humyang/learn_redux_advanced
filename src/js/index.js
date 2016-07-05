@@ -12,21 +12,23 @@ import configStore from './store/configureStore.js';
 
 import Root from './containers/Root.js';
 
+import {browserHistory} from 'react-router'
+
+import { syncHistoryWithStore } from 'react-router-redux'
 
 require("file?name=index.html!../index.html");
 
 require('../css/index.css');
 
 const store = configStore();
-
-console.log(store);
+const history = syncHistoryWithStore(browserHistory, store)
+ReactDom.render(
+    <Root store={store} history={history}/>,
+    document.getElementById('app')
+)
 
 store.dispatch(selectSubreddit('reactjs'))
 
 store.dispatch(fetchPosts('reactjs')).then(() =>
   console.log(store.getState())
-)
-ReactDom.render(
-    <Root store={store} />,
-    document.getElementById('app')
 )

@@ -55,9 +55,22 @@ function postsBySubreddit(state = {}, action) {
   }
 }
 
+function setJumpUrl(state={},action){
+    switch (action.type) {
+        case 'SETURL':
+            return Object.assign({}, state, {
+                 value:action.url
+            })
+            break;
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
   postsBySubreddit,
   selectedSubreddit,
+  setJumpUrl,
   routing:routerReducer
 })
 

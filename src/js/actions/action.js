@@ -103,3 +103,11 @@ export function fetchPostsIfNeeded(subreddit) {
     }
   }
 }
+
+
+export function setJumpUrl(url){
+    return {
+        type:'SETURL',
+        url
+    }
+}

@@ -5,7 +5,9 @@ import {connect} from 'react-redux'
 
 import { Link } from 'react-router'
 
-import NavLink from '../component/common/NavLink.js';
+import NavLink from '../component/common/NavLink.js'
+
+import ProgrmeUrl from './views/ProgrmeUrl.js'
 
 class App extends React.Component {
 
@@ -23,6 +25,7 @@ class App extends React.Component {
                 <li><NavLink to="/thirdlyview" >to thirdlyview</NavLink></li>
                 <li><NavLink to="/repos" >to repos</NavLink></li>
             </ul>
+            <ProgrmeUrl />
             {this.props.children}
 
                 {/*<InputBoard ></InputBoard>*/}

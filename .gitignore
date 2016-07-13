@@ -9,3 +9,7 @@ npm-debug.log
 */npm-debug.log
 
 www
+
+server.bundle.js
+
+test_node.js

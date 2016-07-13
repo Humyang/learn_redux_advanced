@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run server",
-    "webpack": "webpack --progress --colors --display-modules",
-    "server": "webpack-dev-server --progress --colors --wacth --content-base='www' --inline --history-api-fallback",
-    "start:prod": "npm run webpack && node server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev":"webpack-dev-server --progress --colors --wacth --content-base='www' --inline --history-api-fallback",
+    "start:prod": "npm run build && node server.bundle.js",
+    "build:client": "webpack --progress --colors --display-modules",
+    "build:server":"webpack --config webpack.server.config.js",
+    "build":"npm run build:client && npm run build:server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

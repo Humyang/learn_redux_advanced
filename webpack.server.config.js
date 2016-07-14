@@ -3,7 +3,10 @@ var path = require('path')
 
 module.exports = {
     entry:path.resolve(__dirname,'server.js'),
-
+    resolve: {
+        alias: {},
+        extensions:["", ".webpack.js", ".web.js", ".js",".jsx"]
+    },
     output:{
         filename:'./server.bundle.js'
     },
@@ -25,6 +28,16 @@ module.exports = {
 
     module:{
         loaders:[
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'stage-0', 'react'],
+                    plugins: ['transform-object-assign']
+                }
+            },
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
         ]
     }

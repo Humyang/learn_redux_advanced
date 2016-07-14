@@ -8,7 +8,7 @@ import DevTools from './DevTools.jsx';
 
 import {Router} from 'react-router'
 
-import routes from '../routes.js'
+import routes from '../../modules/routes.js'
 
 class Root extends Component {
 

@@ -20,7 +20,11 @@ require("file?name=index.html!../index.html");
 
 require('../css/index.css');
 
-const store = configStore();
+// Grab the state from a global injected into server-generated HTML
+const initialState = window.__INITIAL_STATE__
+
+const store = configStore(initialState);
+
 const history = syncHistoryWithStore(browserHistory, store)
 ReactDom.render(
     <Root store={store} history={history}/>,

@@ -1,4 +1,8 @@
-State Design
+# Run
+
+`NODE_ENV=production npm run build:server`
+
+# State Design
 ```javascript
 {
   selectedSubreddit: 'frontend',

@@ -9,7 +9,7 @@ import ThirdlyVIew from '../js/containers/views/ThirdlyVIew.jsx'
 import Repos from '../js/containers/views/Repos.js'
 import Repo from '../js/containers/views/Repo.js'
 import Home from '../js/containers/views/Home.js'
-import Tabs from '../js/containers/views/Tabs.jsx'
+import Tabs from '../js/containers/views/tabs/Tabs.jsx'
 
 
 export default (

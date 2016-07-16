@@ -13,7 +13,8 @@ const enhancer = compose(
         loggerMiddleware // neat middleware that logs actions
       ),
     DevTools.instrument(),
-    persistState(getDebugSessionKey()));
+    persistState(getDebugSessionKey())
+);
 
 function getDebugSessionKey(){
     const matches = window.location.href.match(/[?&]debug_session=([^&#]+)\b/);

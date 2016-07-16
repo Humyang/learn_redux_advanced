@@ -18,11 +18,11 @@ var app = express()
 var file_path = __dirname + '/www';
 
 // 指定静态资源路径，例如 index.css
-app.use(express.static('www'))
+app.use(express.static('www',{index:false}))
 
 app.use(compression());
 
-// 所有请求都发送给 index.html 因此在 React Router 的 browserHistory 可以工作
+// 所有请求都发送给 index.html 因此 React Router 的 browserHistory 可以正常工作
 app.get('*',function(req,res){
 
     match({routes:routes,location:req.url},(err,redirect,props)=>{
@@ -34,8 +34,15 @@ app.get('*',function(req,res){
             // RouterContext 是 Router 所渲染的内容
             // Router 将 props 保存在 state 中监听 'browserHistroy'
             // 但服务端是无状态程序，所以我们需要使用 'match' 在渲染之前获取 props
-
-            const store = configStore();
+            // let initialState = {
+            //   postsBySubreddit:"1",
+            //   selectedSubreddit:"2",
+            //   setJumpUrl:"3",
+            //   routing:"4",
+            //   count:20
+            // }
+            let initialState = {}
+            const store = configStore(initialState);
 
             const appHtml = renderToString(
                 <Provider store={store}>
@@ -44,9 +51,9 @@ app.get('*',function(req,res){
 
             )
             // Grab the initial state from our Redux store
-            const initialState = store.getState()
-
-            res.send(renderPage(appHtml,initialState))
+            const finalState = store.getState()
+            // console.log(111);
+            res.send(renderPage(appHtml,finalState))
         }else{
             res.status(404).send('Not Found')
         }
@@ -54,7 +61,7 @@ app.get('*',function(req,res){
 })
 
 function renderPage(appHtml,initialState) {
-  return `
+    return `
   <!doctype html>
   <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->

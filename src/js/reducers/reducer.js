@@ -71,7 +71,9 @@ const rootReducer = combineReducers({
   postsBySubreddit,
   selectedSubreddit,
   setJumpUrl,
-  routing:routerReducer
+  routing:routerReducer,
+  count:()=>{
+      return 0
+  }
 })
-
 export default rootReducer

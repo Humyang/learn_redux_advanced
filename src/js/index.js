@@ -22,7 +22,8 @@ require('../css/index.css');
 
 // Grab the state from a global injected into server-generated HTML
 const initialState = window.__INITIAL_STATE__
-
+console.log("initialState:");
+console.log(initialState);
 const store = configStore(initialState);
 
 const history = syncHistoryWithStore(browserHistory, store)
@@ -30,6 +31,8 @@ ReactDom.render(
     <Root store={store} history={history}/>,
     document.getElementById('app')
 )
+
+console.log(store.getState());
 
 store.dispatch(selectSubreddit('reactjs'))
 

@@ -20,10 +20,11 @@ class App extends React.Component {
     render() {
         return <div id="container">
             <ul>
-                <li><NavLink to="/" onlyActiveOnIndex={true}>home page</NavLink></li>
+                {/*<li><NavLink to="/" onlyActiveOnIndex={true}>home page</NavLink></li>
                 <li><NavLink to="/secondview" >to secondview</NavLink></li>
                 <li><NavLink to="/thirdlyview" >to thirdlyview</NavLink></li>
                 <li><NavLink to="/repos" >to repos</NavLink></li>
+                <li><NavLink to="/tabs" >tabs</NavLink></li>*/}
             </ul>
             <ProgrmeUrl />
             {this.props.children}

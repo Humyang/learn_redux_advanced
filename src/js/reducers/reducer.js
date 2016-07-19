@@ -5,7 +5,10 @@ import {
   REQUEST_POSTS, RECEIVE_POSTS
 } from '../actions/action.js'
 
-function selectedSubreddit(state = 'reactjs', action) {
+ export function selectedSubreddit(state = 'reactjs', action) {
+    //  if (!action) {
+    //      return state
+    //  }
   switch (action.type) {
     case SELECT_SUBREDDIT:
       return action.subreddit
@@ -14,7 +17,7 @@ function selectedSubreddit(state = 'reactjs', action) {
   }
 }
 
-function posts(state = {
+ export function posts(state = {
   isFetching: false,
   didInvalidate: false,
   items: []
@@ -41,7 +44,7 @@ function posts(state = {
   }
 }
 
-function postsBySubreddit(state = {}, action) {
+ export function postsBySubreddit(state = {}, action) {
   switch (action.type) {
     case INVALIDATE_SUBREDDIT:
     case RECEIVE_POSTS:
@@ -55,7 +58,7 @@ function postsBySubreddit(state = {}, action) {
   }
 }
 
-function setJumpUrl(state={},action){
+ export function setJumpUrl(state={},action){
     switch (action.type) {
         case 'SETURL':
             return Object.assign({}, state, {
@@ -77,3 +80,10 @@ const rootReducer = combineReducers({
   }
 })
 export default rootReducer
+
+// export {
+//     selectedSubreddit,
+//     posts,
+//     postsBySubreddit,
+//     setJumpUrl
+// }

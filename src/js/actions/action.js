@@ -32,6 +32,7 @@ export function requestPosts(subreddit){
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export function receivePosts(subreddit,json){
+
     return {
         type:RECEIVE_POSTS,
         subreddit,
@@ -39,7 +40,7 @@ export function receivePosts(subreddit,json){
         receivedAt:Date.now()
     }
 }
-
+import fetch from 'isomorphic-fetch'
 // 我们的第一个 thunk action creator
 // 尽管与其他的 creator 有些不一样，但你可以像其他 creator 一样使用：
 // store.dispatch(fetchPosts('reactjs'))
@@ -67,6 +68,7 @@ export function fetchPosts(subreddit){
                 // store.dispatch(fetchPosts('reactjs')).then(() =>
                 //   console.log(store.getState())
                 // )
+
                 dispatch(receivePosts(subreddit,json))
             )
     }

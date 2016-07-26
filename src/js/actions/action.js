@@ -86,16 +86,17 @@ function shouldFetchPosts(state, subreddit) {
 }
 
 export function fetchPostsIfNeeded(subreddit) {
-
   // Note that the function also receives getState()
   // which lets you choose what to dispatch next.
 
   // This is useful for avoiding a network request if
   // a cached value is already available.
-
+console.log(222);
   return (dispatch, getState) => {
+
     if (shouldFetchPosts(getState(), subreddit)) {
       // Dispatch a thunk from thunk!
+      console.log(111);
       return dispatch(fetchPosts(subreddit))
     } else {
       // Let the calling code know there's nothing to wait for.
@@ -111,3 +112,21 @@ export function setJumpUrl(url){
         url
     }
 }
+
+// Fetches a page of stargazers for a particular repo.
+// Bails out if page is cached and user didn’t specifically request next page.
+// Relies on Redux Thunk middleware.
+// export function loadStargazers(fullName, nextPage) {
+//   return (dispatch, getState) => {
+//     const {
+//       nextPageUrl = `repos/${fullName}/stargazers`,
+//       pageCount = 0
+//     } = getState().pagination.stargazersByRepo[fullName] || {}
+//
+//     if (pageCount > 0 && !nextPage) {
+//       return null
+//     }
+//
+//     return dispatch(fetchStargazers(fullName, nextPageUrl))
+//   }
+// }

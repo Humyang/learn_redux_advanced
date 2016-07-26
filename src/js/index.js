@@ -5,7 +5,7 @@ import ReactDom from 'react-dom';
 // import createLogger from 'redux-logger'
 // const loggerMiddleware = createLogger()
 import { createStore, applyMiddleware } from 'redux'
-import { selectSubreddit, fetchPosts } from './actions/action.js'
+import { selectSubreddit, fetchPosts,fetchPostsIfNeeded } from './actions/action.js'
 import rootReducer from './reducers/reducer.js'
 
 import configStore from './store/configureStore.js';
@@ -34,8 +34,10 @@ ReactDom.render(
 
 console.log(store.getState());
 
-store.dispatch(selectSubreddit('reactjs'))
+// fetchPostsIfNeeded('reactjs')
 
-store.dispatch(fetchPosts('reactjs')).then(() =>
-  console.log(store.getState())
-)
+// store.dispatch(selectSubreddit('reactjs'))
+//
+// store.dispatch(fetchPosts('reactjs')).then(() =>
+//   console.log(store.getState())
+// )

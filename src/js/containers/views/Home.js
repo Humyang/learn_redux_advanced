@@ -13,8 +13,7 @@ export default class Home extends React.Component {
 
     }
     render() {
-        return <div >Home Page
-        </div>;
+        return <div >Home Page</div>;
     }
 
     componentDidMount() {

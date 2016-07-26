@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import NavLink from '../../../component/common/NavLink.js'
+import MainBoard from '../../../component/common/MainBoard.js'
 
 class Tabs extends React.Component {
 
@@ -15,13 +16,17 @@ class Tabs extends React.Component {
     render() {
         return <div>
             <ul>
-                <li><NavLink to="/" onlyActiveOnIndex={true}>home page</NavLink></li>
+                {/*<li><NavLink to="/" onlyActiveOnIndex={true}>home page</NavLink></li>
                 <li><NavLink to="/secondview" >to secondview</NavLink></li>
                 <li><NavLink to="/thirdlyview" >to thirdlyview</NavLink></li>
                 <li><NavLink to="/repos" >to repos</NavLink></li>
-                <li><NavLink to="/tabs" >tabs</NavLink></li>
+                <li><NavLink to="/tabs" >tabs</NavLink></li>*/}
+                <li><NavLink to='/tabs/wordlist'>WordList</NavLink></li>
             </ul>
-            {this.props.children}
+            <MainBoard>
+                 {this.props.children}
+            </MainBoard>
+
         </div>;
     }
 

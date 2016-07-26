@@ -26,7 +26,7 @@ class App extends React.Component {
                 <li><NavLink to="/repos" >to repos</NavLink></li>
                 <li><NavLink to="/tabs" >tabs</NavLink></li>*/}
             </ul>
-            <ProgrmeUrl />
+            {/*<ProgrmeUrl />*/}
             {this.props.children}
 
                 {/*<InputBoard ></InputBoard>*/}

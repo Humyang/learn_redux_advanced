@@ -11,6 +11,7 @@ import Repo from '../js/containers/views/Repo.js'
 import Home from '../js/containers/views/Home.js'
 import Tabs from '../js/containers/views/tabs/Tabs.jsx'
 
+import WordList from '../js/containers/views/WordList/WordList.js'
 
 export default (
     <Route path="/"  component={App}>
@@ -18,7 +19,9 @@ export default (
         <Route path="/repos" components={Repos} >
             <Route path="/repos/:userName/:repoName" component={Repo} />
         </Route>
-        <Route path="/tabs" component={Tabs} />
+        <Route path="/tabs" component={Tabs} >
+            <Route path="/tabs/wordlist" component={WordList} />
+        </Route>
         <Route path="/secondview" component={SecondView} />
         <Route path="/thirdlyview" component={ThirdlyVIew} />
     </Route>
